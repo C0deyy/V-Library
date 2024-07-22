@@ -1,0 +1,117 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title> V Library</title>
+    <link rel="stylesheet" href="style.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap"
+      rel="stylesheet"
+    />
+    <link rel="shortcut icon" href="icon.ico" />
+    <script
+      src="https://kit.fontawesome.com/4c536a6bd5.js"
+      crossorigin="anonymous"
+    ></script>
+
+    <script src="script.js" defer></script>
+  </head>
+  <body>
+    <header class="header">
+      <div class="container">
+        <h1>library</h1>
+        <nav>
+          <div class="lds-dual-ring active" id="loadingRing"></div>
+          <div class="logged-out" id="loggedOut">
+            <button class="btn" id="logInBtn">Log in</button>
+          </div>
+          <div class="logged-in" id="loggedIn">
+            <button class="btn" id="accountBtn">Account</button>
+            <button class="btn" id="logOutBtn">Log out</button>
+          </div>
+        </nav>
+      </div>
+    </header>
+    <main class="main container">
+      <button class="btn btn-add" id="addBookBtn">+ Add book</button>
+      <div class="books-grid" id="booksGrid"></div>
+    </main>
+    <footer class="footer">
+      <p>
+        Copyright ©
+        <script>
+          document.write(new Date().getFullYear())
+        </script>
+        codeyy
+      </p>
+      <a href="https://github.com/C0deyy" target="_blank">
+        <i class="fab fa-github"></i
+      ></a>
+    </footer>
+    <div class="modal" id="addBookModal">
+      <form class="add-book-form" id="addBookForm">
+        <h3>Add new book</h3>
+        <input
+          class="input"
+          type="text"
+          id="title"
+          placeholder="Title"
+          required
+          maxlength="100"
+        />
+        <p class="error-msg" id="errorMsg"></p>
+        <input
+          class="input"
+          type="text"
+          id="author"
+          placeholder="Author"
+          required
+          maxlength="100"
+        />
+        <input
+          class="input"
+          type="number"
+          id="pages"
+          placeholder="Pages"
+          required
+          max="10000"
+        />
+        <div class="is-read">
+          <label for="is-read">Have you read it?</label>
+          <input class="checkbox" type="checkbox" id="isRead" />
+        </div>
+        <button class="btn btn-light-green" type="submit">Submit</button>
+      </form>
+    </div>
+    <div class="modal" id="accountModal"></div>
+    <div class="overlay" id="overlay"></div>
+
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/uuid/8.1.0/uuidv4.min.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-app.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-auth.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/8.7.1/firebase-database.js"></script>
+
+    <script>
+
+        const firebaseConfig = {
+            apiKey: "AIzaSyBedZ2OI5lMyWeX0S6R6EoKJoa8g1cqnuQ",
+            authDomain: "v-library-e9871.firebaseapp.com",
+            projectId: "v-library-e9871",
+            storageBucket: "v-library-e9871.appspot.com",
+            messagingSenderId: "559681459786",
+            appId: "1:559681459786:web:7436ab38431d5fe59db8b3",
+            measurementId: "G-F3JP0K0RT5",
+            databaseURL: "https://v-library-e9871-default-rtdb.firebaseio.com/"
+
+        };
+        firebase.initializeApp(firebaseConfig);   
+        
+        firebase.auth();
+    </script>
+    </script>
+  </body>
+</html>
